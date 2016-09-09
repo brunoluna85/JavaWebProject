@@ -30,4 +30,14 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	<!-- Dependências -->
+	
+	<dependencies>
+		<dependency>
+   			<groupId>org.hibernate</groupId>
+   			<artifactId>hibernate-core</artifactId>
+   			<version>5.2.2.Final</version>
+		</dependency>
+	</dependencies>
 </project>
