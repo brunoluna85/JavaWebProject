@@ -6,7 +6,7 @@
 <hibernate-configuration>
 
 	<!-- a SessionFactory instance listed as /jndi/name -->
-	<session-factory name="java:hibernate/SessionFactory">
+	<session-factory>
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -30,11 +30,11 @@
 		<property name="show_sql">true</property>
 		
 		<!-- Drop and re-create database schema on statup (create, update or validate) -->
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 		
-		<!--
-		<mapping resource="org/hibernate/tutorial/domain/Event.hbm.xml"/>
-		-->
+		<!-- Mapping the entities -->
+		<mapping class="br.com.mercs.projetoweb.entity.Estado"/>
+
 
 	</session-factory>
 
