@@ -2,24 +2,19 @@ package br.com.mercs.projetoweb.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @SuppressWarnings("serial")
 @Entity
-public class Estado extends GenericEntity {
+public class Cidade extends GenericEntity {
 
-	@Column(length = 2, nullable = false, unique = true)
-	private String sigla;
-	
 	@Column(length = 50, nullable = false)
 	private String nome;
-
-	public String getSigla() {
-		return sigla;
-	}
-
-	public void setSigla(String sigla) {
-		this.sigla = sigla;
-	}
+	
+	@ManyToOne
+	@JoinColumn(nullable = false)
+	private Estado estado;
 
 	public String getNome() {
 		return nome;
@@ -28,5 +23,12 @@ public class Estado extends GenericEntity {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
 }

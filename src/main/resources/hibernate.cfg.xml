@@ -33,7 +33,10 @@
 		<property name="hbm2ddl.auto">create</property>
 		
 		<!-- Mapping the entities -->
+		<mapping class="br.com.mercs.projetoweb.entity.Cidade"/>
 		<mapping class="br.com.mercs.projetoweb.entity.Estado"/>
+		<mapping class="br.com.mercs.projetoweb.entity.Pessoa"/>
+		<mapping class="br.com.mercs.projetoweb.entity.Produto"/>
 
 
 	</session-factory>
