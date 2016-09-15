@@ -7,14 +7,13 @@ import org.junit.Test;
 
 import br.com.mercs.projetoweb.entity.Estado;
 
-public class EstadoDAOTest {
+public class EstadoDAOTest implements DAOTest{
 
 	@Test
-	@Ignore
 	public void salvar(){
 		Estado estado = new Estado();
-		estado.setNome("Paraíba");
-		estado.setSigla("PB");
+		estado.setNome("Rio de Janeiro");
+		estado.setSigla("RJ");
 		
 		EstadoDAO estadoDAO = new EstadoDAO();
 		estadoDAO.salvar(estado);
@@ -61,6 +60,7 @@ public class EstadoDAOTest {
 	
 	
 	@Test
+	@Ignore
 	public void editar(){
 		EstadoDAO estadoDAO = new EstadoDAO();
 		Estado estado = estadoDAO.buscar(2L);
