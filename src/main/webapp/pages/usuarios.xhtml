@@ -6,12 +6,12 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Estados</title>
+	<title>Usuários</title>
 </h:head>
 <h:body>
 	<h:form>
-		<p:panel header="Estados - Listagem">
-			<p:dataTable emptyMessage="Nenhum estado encontrado."
+		<p:panel header="Usuários - Listagem">
+			<p:dataTable emptyMessage="Nenhum cliente encontrado."
 				paginator="true">
 				<f:facet name="header">
 					<p:commandButton value="Novo"
@@ -21,7 +21,13 @@
 				<p:column headerText="Nome" sortBy="" filterBy="">
 				</p:column>
 
-				<p:column headerText="Sigla">
+				<p:column headerText="CPF">
+				</p:column>
+				
+				<p:column headerText="Ativo">
+				</p:column>
+				
+				<p:column headerText="Tipo">
 				</p:column>
 
 				<p:column headerText="Opções">
@@ -30,16 +36,26 @@
 		</p:panel>
 	</h:form>
 
-	<p:dialog header="Estados - Cadastro" widgetVar="dialogo"
+	<p:dialog header="Usuários - Cadastro" widgetVar="dialogo"
 		draggable="false" resizable="false" modal="true" closable="false">
 		<h:form>
 			<h:panelGrid columns="2">
-				<p:outputLabel value="Nome: " />
-				<p:inputText size="30" maxlength="50" />
-
-				<p:outputLabel value="Sigla: " />
-				<p:inputText size="5" maxlength="2" />
-
+				<p:outputLabel value="CPF: " />
+				<p:inputText maxlength="14" size="30" />
+				
+				<p:outputLabel value="Senha: " />
+				<p:password maxlength="32" size="10" />
+				
+				<p:outputLabel value="Tipo: " />
+				<p:selectOneRadio>
+					<f:selectItem itemValue="G" itemLabel="Gerente" />
+					<f:selectItem itemValue="U" itemLabel="Usuário" />
+					<f:selectItem itemValue="V" itemLabel="Visitante" />
+				</p:selectOneRadio>
+				
+				<p:outputLabel value="Ativo " />
+				<p:selectBooleanCheckbox />
+				
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
