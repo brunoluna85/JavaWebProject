@@ -13,17 +13,19 @@
 
 	<h:form>
 		<p:panel header="Estados - Listagem">
-			<p:dataTable emptyMessage="Nenhum estado encontrado."
-				paginator="true">
+			<p:dataTable emptyMessage="Nenhum estado encontrado." paginator="true" 
+				value="#{estadoBean.listaEstados}" var="estado">
 				<f:facet name="header">
 					<p:commandButton value="Novo" oncomplete="PF('dialogo').show();"
 						actionListener="#{estadoBean.initEstado}" update=":formCadastro:painel" />
 				</f:facet>
 
 				<p:column headerText="Nome" sortBy="" filterBy="">
+					<h:outputText value="#{estado.nome}" />
 				</p:column>
 
 				<p:column headerText="Sigla">
+					<h:outputText value="#{estado.sigla}" />
 				</p:column>
 
 				<p:column headerText="Opções">

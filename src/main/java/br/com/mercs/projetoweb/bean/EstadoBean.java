@@ -1,7 +1,9 @@
 package br.com.mercs.projetoweb.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 //import javax.faces.context.FacesContext;
 //import javax.faces.application.FacesMessage;
@@ -19,12 +21,32 @@ public class EstadoBean implements Serializable{
 	
 	private Estado estado;
 	
+	private List<Estado> listaEstados;
+	
+	public List<Estado> getListaEstados() {
+		return listaEstados;
+	}
+	public void setListaEstados(List<Estado> listaEstados) {
+		this.listaEstados = listaEstados;
+	}
+	
 	public Estado getEstado() {
 		return estado;
 	}
 
 	public void setEstado(Estado estado) {
 		this.estado = estado;
+	}
+	
+	@PostConstruct
+	public void listar(){
+		try {
+			EstadoDAO estadoDAO = new EstadoDAO();
+			listaEstados = estadoDAO.listar();
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("Erro ao tentar listar os estados.");
+			erro.printStackTrace();
+		}
 	}
 	
 	public void initEstado(){
