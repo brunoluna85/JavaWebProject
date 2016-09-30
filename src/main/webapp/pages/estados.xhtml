@@ -29,9 +29,10 @@
 				</p:column>
 
 				<p:column headerText="Opções">
-					<p:commandButton icon="ui-icon-trash">
+					<p:commandButton icon="ui-icon-trash" actionListener="#{estadoBean.excluir}" update=":mensagem">
 						<p:confirm header="Confirmação" message="Deseja realmente excluir o estado?" icon="ui-icon-alert" />
-					</p:commandButton>
+						<f:attribute name="estadoSelecionado" value="#{estado}" /> 	<!-- uso da var "estado" pra pegar o item. -->
+					</p:commandButton>												<!-- o name é o nome do item q vai p bean. -->
 				</p:column>
 			</p:dataTable>
 			

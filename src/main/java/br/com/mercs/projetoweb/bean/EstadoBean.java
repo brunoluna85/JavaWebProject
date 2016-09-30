@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 //import javax.faces.context.FacesContext;
 //import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import org.omnifaces.util.Messages;
 
@@ -75,6 +76,12 @@ public class EstadoBean implements Serializable{
 			Messages.addGlobalError("Erro ao tentar salvar o estado.");
 			erro.printStackTrace();
 		}
+	}
+	
+	public void excluir(ActionEvent evento){
+		estado = (Estado) evento.getComponent().getAttributes().get("estadoSelecionado");
+		Messages.addGlobalInfo("Nome: "+estado.getNome() + "-" + estado.getSigla());
+		
 	}
 
 }
